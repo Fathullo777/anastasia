@@ -1,0 +1,128 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black; /* Измененный цвет фона */
+    font-family: 'Roboto', sans-serif; /* Основной шрифт */
+}
+
+.container {
+    display: flex; /* Используем flexbox для размещения элементов в ряд */
+    flex-direction: column; /* Изменяем направление на столбец */
+    align-items: center; /* Центрируем по горизонтали */
+}
+
+.eye-image {
+    width: 90%; /* Изменена ширина для мобильных устройств */
+    max-width: 900px; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота, чтобы сохранить пропорции */
+    transition: transform 0.3s; /* Плавный переход для эффекта при наведении */
+}
+
+.eye-image:hover {
+    transform: scale(1.05); /* Увеличиваем изображение при наведении */
+}
+
+.ff {
+    margin-top: 20px; /* Отступ сверху для отделения от изображения */
+    text-align: center;
+    color: #f0f0f0;
+    font-family: 'Lobster', cursive; /* Шрифт для цитат */
+    font-size: 30px;
+    transition: color 0.3s; /* Плавный переход для цвета текста */
+}
+
+.sss {
+    margin-top: 20px; /* Отступ сверху для отделения от блока цитат */
+    text-align: center;
+    color: #f0f0f0;
+    font-family: 'Lobster', cursive; /* Шрифт для текста */
+    font-size: 30px;
+}
+
+/* Ваши стили для кнопок остаются прежними */
+button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.4em 1.5em; /* Уменьшенные отступы */
+    border: mediumspringgreen solid 0.15em;
+    border-radius: 0.25em;
+    color: mediumspringgreen;
+    font-size: 1.2em; /* Уменьшенный размер шрифта */
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 300ms, color 300ms;
+    user-select: none;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    color: #212121; /* Цвет текста при наведении */
+    border-color: mediumspringgreen; /* Цвет границы при наведении */
+}
+
+button:active {
+    border-color: teal; /* Цвет границы при нажатии */
+}
+
+/* Убираем движение границ при наведении */
+button::after, button::before {
+    content: "";
+    position: absolute;
+    width: 6em; /* Уменьшенная ширина для эффекта */
+    aspect-ratio: 1;
+    background: mediumspringgreen;
+    opacity: 50%;
+    border-radius: 50%;
+    transition: transform 500ms, background 300ms;
+}
+
+button::before {
+    left: 0;
+    transform: translateX(-5em); /* Уменьшенное смещение */
+}
+
+button::after {
+    right: 0;
+    transform: translateX(5em); /* Уменьшенное смещение */
+}
+
+button:hover:before {
+    transform: translateX(-1em); /* Уменьшенное движение при наведении */
+}
+
+button:hover:after {
+    transform: translateX(1em); /* Уменьшенное движение при наведении */
+}
+
+button:active:before,
+button:active:after {
+    background: teal; /* Цвет фона при нажатии */
+}
+
+.d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Медиазапросы для адаптации под мобильные устройства */
+@media (max-width: 600px) {
+    .ff {
+        font-size: 24px; /* Уменьшаем размер шрифта для цитат */
+    }
+
+    button {
+        font-size: 1em; /* Уменьшаем размер шрифта для кнопок */
+        padding: 0.3em 1em; /* Уменьшаем отступы для кнопок */
+    }
+
+    .eye-image {
+        width: 100%; /* Ширина изображения на мобильных устройствах */
+    }
+}

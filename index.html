@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глаз Цитат</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <audio id="background-music" loop>
+       <source src="file_4773.mp3" type="audio/mpeg"> <!-- Замените на путь к вашему файлу -->
+       Ваш браузер не поддерживает аудио.
+   </audio>
+   <button id="play-button" onclick="playMusic()">Воспроизвести музыку</button> <!-- Кнопка для воспроизведения музыки -->
+   <button id="music-button" onclick="stopMusic()">Остановить музыку</button> <!-- Кнопка для остановки музыки -->
+   <div class="container">
+       <div class="eye">
+           <img src="photo_2024-10-24_12-59-43.jpg" alt="Глаз" class="eye-image">
+       </div>
+       <div class="ff">
+           <p id="quote">Нажмите кнопку, чтобы увидеть цитату!</p>
+           <div class="d">
+               <button onclick="newQuote()">Новая цитата</button>
+           </div>
+       </div>
+   </div>
+   <script src="script.js"></script>
+   <script>
+       // Воспроизводим музыку при загрузке страницы
+       window.onload = function() {
+           const audio = document.getElementById("background-music");
+           audio.play().catch(error => {
+               console.log("Ошибка при воспроизведении музыки: " + error);
+           });
+       }
+
+       function playMusic() {
+           const audio = document.getElementById("background-music");
+           audio.play().catch(error => {
+               console.log("Ошибка при воспроизведении музыки: " + error);
+           });
+       }
+
+       function stopMusic() {
+           const audio = document.getElementById("background-music");
+           audio.pause(); // Останавливаем музыку
+           const button = document.getElementById("music-button");
+           button.style.display = "none"; // Скрываем кнопку после остановки музыки
+       }
+
+       function newQuote() {
+           // Генерируем случайный индекс для выбора цитаты
+
+           const randomIndex = Math.floor(Math.random() * quotes.length);
+           document.getElementById("quote").textContent = quotes[randomIndex]; // Обновляем текст цитаты
+
+           // Воспроизводим музыку
+           const audio = document.getElementById("background-music");
+           audio.play().catch(error => {
+               console.log("Ошибка при воспроизведении музыки: " + error);
+           });
+       }
+   </script>
+</body>
+</html>
