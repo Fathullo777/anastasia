@@ -12,7 +12,14 @@ function newQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     document.getElementById("quote").innerText = quotes[randomIndex];
 }
+
 function playMusic() {
-  const audio = document.getElementById("background-music");
-  audio.play();
+    const audio = document.getElementById("background-music");
+    audio.play();
+}
+
+function stopMusic() {
+    const audio = document.getElementById("background-music");
+    audio.pause();
+    audio.currentTime = 0; // Сбрасываем время воспроизведения
 }
