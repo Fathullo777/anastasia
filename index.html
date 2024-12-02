@@ -8,68 +8,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+   <!-- Аудио -->
    <audio id="background-music" loop>
-       <source src="file_1000580.mp3" type="audio/mpeg"> <!-- Замените на путь к вашему файлу -->
+       <source src="file_1000580.mp3" type="audio/mpeg">
        Ваш браузер не поддерживает аудио.
    </audio>
    <div class="dg">
-       <button id="play-button" onclick="playMusic()">Воспроизвести музыку</button> <!-- Кнопка для воспроизведения музыки -->
-       <button id="music-button" onclick="stopMusic()">Остановить музыку</button> <!-- Кнопка для остановки музыки -->
-
+       <button id="toggle-music-button">Воспроизвести музыку</button>
    </div>
+
+   <!-- Блок с изображениями -->
    <div class="container">
        <div class="eye">
-           <img src="photo_2024-10-25_20-47-00.jpg" alt="Глаз" class="eye-image">
-           <img src="photo_2024-10-25_20-52-32.jpg" alt="" class="eye-image">
-           <img src="photo_2024-10-25_20-52-37.jpg" alt="" class="eye-image">
+           <img src="photo_2024-08-31_22-46-56.jpg" alt="Глаз изображение 1" class="eye-image">
+           <img src="photo_2024-11-25_14-29-01.jpg" alt="Глаз изображение 2" class="eye-image">
+           <img src="photo_2024-12-02_19-43-04.jpg" alt="Глаз изображение 3" class="eye-image">
+           <div class="fullscreen-overlay" id="fullscreenOverlay">
+            <img id="fullscreenImage" src="" alt="Fullscreen">
+        </div>
+        
        </div>
-       <p class="dd">Подумал о тебе — и пошёл снег
-        Холода нас греют: ближе к семье
-        Всюду суета эта, где нас нет
-        Новые текста, но не о тебе</p>
+
+       <!-- Текст и цитата -->
+       <p class="dd">Подумал о тебе — и пошёл снег...</p>
        <div class="ff">
            <p id="quote">Нажмите кнопку, чтобы увидеть цитату!</p>
-           <div class="d">
-               <button onclick="newQuote()">Новая цитата</button>
-           </div>
+           <button onclick="newQuote()">Новая цитата</button>
        </div>
    </div>
+
+   <!-- Поле для добавления новой цитаты -->
+   <div class="add-quote-container">
+
+   </div>
+
+   <!-- Подключение JavaScript -->
    <script src="script.js"></script>
-   <script>
-       // Воспроизводим музыку при загрузке страницы
-       window.onload = function() {
-           const audio = document.getElementById("background-music");
-           audio.play().catch(error => {
-               console.log("Ошибка при воспроизведении музыки: " + error);
-           });
-       }
-
-       function playMusic() {
-           const audio = document.getElementById("background-music");
-           audio.play().catch(error => {
-               console.log("Ошибка при воспроизведении музыки: " + error);
-           });
-       }
-
-       function stopMusic() {
-           const audio = document.getElementById("background-music");
-           audio.pause(); // Останавливаем музыку
-           const button = document.getElementById("music-button");
-           button.style.display = "none"; // Скрываем кнопку после остановки музыки
-       }
-
-       function newQuote() {
-           // Генерируем случайный индекс для выбора цитаты
-
-           const randomIndex = Math.floor(Math.random() * quotes.length);
-           document.getElementById("quote").textContent = quotes[randomIndex]; // Обновляем текст цитаты
-
-           // Воспроизводим музыку
-           const audio = document.getElementById("background-music");
-           audio.play().catch(error => {
-               console.log("Ошибка при воспроизведении музыки: " + error);
-           });
-       }
-   </script>
 </body>
 </html>
